@@ -26,7 +26,7 @@ const VideoPlayer = () => {
           );
         });
 
-        hls.loadSource("https://203.161.46.12:8888/mystream/index.m3u8");
+        hls.loadSource("http://172.233.107.41:8888/mystream/index.m3u8");
         hls.attachMedia(video);
 
         // Save hls instance to the video element for cleanup

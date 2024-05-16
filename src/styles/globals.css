@@ -17,6 +17,7 @@
 }
 
 body {
+   margin: 0;
 }
 
 @layer utilities {
@@ -24,3 +25,16 @@ body {
     text-wrap: balance;
   }
 }
+
+
+.live-indicator {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 999; /* Ensure it's above the video player controls */
+}
+
