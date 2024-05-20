@@ -2,20 +2,17 @@ import Script from "next/script";
 import Hls from "hls.js";
 import React, { useEffect, useRef, useState } from "react";
 
-
 //const url = "http://localhost:8888/mystream/index.m3u8"
-
-const url = "https://203.161.46.12:8888/mystream/index.m3u8"
-
+//const url = "https://203.161.46.12:8888/mystream/index.m3u8"
+//const url = "http://172.233.107.41:8888/mystream/index.m3u8";
+const url = "https://135caa8d61a0.us-west-2.playback.live-video.net/api/video/v1/us-west-2.730335638120.channel.84nsDpxNGT1A.m3u8"
+//
 
 const App = () => {
   const videoRef = useRef(null);
   const [isBuffering, setIsBuffering] = useState(false);
 
-    const [networkError, setNetworkErr] = useState(false);
-
-  
-
+  const [networkError, setNetworkErr] = useState(false);
 
   useEffect(() => {
     const videof = videoRef.current;
@@ -62,7 +59,7 @@ const App = () => {
           console.log("There is an Error");
           console.log(details);
 
-          setNetworkErr(true)
+          setNetworkErr(true);
 
           if (details === Hls.ErrorDetails.BUFFER_STALLED_ERROR) {
             console.log("buffering loading frame");
@@ -71,9 +68,10 @@ const App = () => {
 
           if (details.type === Hls.ErrorTypes.NETWORK_ERROR) {
             console.log("here is network Error");
+            setNetworkErr(true)
+           // hls.loadSource(url);
+           // hls.startLoad();
           }
-          hls.loadSource(url);
-          hls.startLoad();
         });
 
         hls.loadSource(url);
@@ -113,6 +111,7 @@ const App = () => {
 
       <div className="video-container paused" data-volume-level="high">
         {isBuffering && <div className="loading-spinner">loading</div>}
+        {networkError && <div className="loading-spinner">Network Error Relaod player</div>}
 
         <img className="thumbnail-img" />
         <div className="video-controls-container">
