@@ -69,8 +69,8 @@ const App = () => {
           if (details.type === Hls.ErrorTypes.NETWORK_ERROR) {
             console.log("here is network Error");
             setNetworkErr(true)
-           // hls.loadSource(url);
-           // hls.startLoad();
+            hls.loadSource(url);
+            hls.startLoad();
           }
         });
 
