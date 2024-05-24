@@ -1,4 +1,4 @@
-import "@/styles/globals.css";
+//import "@/styles/globals.css";
 import Script from "next/script";
 
 //import "@/styles/player.css";
@@ -25,7 +25,8 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <script src="https://player.live-video.net/1.8.0/amazon-ivs-player.min.js"></script>{" "}
+        <script src="https://player.live-video.net/1.28.0/amazon-ivs-videojs-tech.min.js"></script>
+        <script src="https://player.live-video.net/1.28.0/amazon-ivs-player.min.js"></script>
       </Head>
       <Component {...pageProps} />{" "}
     </>
